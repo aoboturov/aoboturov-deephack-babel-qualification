@@ -1,0 +1,120 @@
+!ModelConfig
+config_data: !DataConfig
+  data_statistics: !DataStatistics
+    average_len_target_per_bucket:
+    - 6.87759658119658
+    - 14.928225472503543
+    - 23.25764667010665
+    - 31.711656816748086
+    - 39.8625655164887
+    - 47.76657566245749
+    - 45.70543517465326
+    buckets:
+    - !!python/tuple
+      - 9
+      - 10
+    - !!python/tuple
+      - 18
+      - 20
+    - !!python/tuple
+      - 27
+      - 30
+    - !!python/tuple
+      - 36
+      - 40
+    - !!python/tuple
+      - 45
+      - 50
+    - !!python/tuple
+      - 54
+      - 60
+    - !!python/tuple
+      - 60
+      - 60
+    length_ratio_mean: 1.1017098495598796
+    length_ratio_std: 0.4682352277963098
+    max_observed_len_source: 60
+    max_observed_len_target: 60
+    num_discarded: 345258
+    num_sents: 4361592
+    num_sents_per_bucket:
+    - 292500
+    - 978035
+    - 1174302
+    - 916082
+    - 586112
+    - 342475
+    - 72086
+    num_tokens_source: 107673108
+    num_tokens_target: 115991511
+    num_unks_source: 0
+    num_unks_target: 0
+    size_vocab_source: 24007
+    size_vocab_target: 29337
+  max_seq_len_source: 60
+  max_seq_len_target: 60
+  num_shards: 1
+  shared_vocab: false
+  source: /home/aoboturov/Github/sockeye/train.clean.BPE.en
+  target: /home/aoboturov/Github/sockeye/train.clean.BPE.de
+  vocab_source: null
+  vocab_target: null
+config_decoder: !RecurrentDecoderConfig
+  attention_config: !AttentionConfig
+    config_coverage: null
+    input_previous_word: false
+    layer_normalization: false
+    num_heads: null
+    num_hidden: 512
+    query_num_hidden: 512
+    source_num_hidden: 512
+    type: dot
+  attention_in_upper_layers: false
+  context_gating: false
+  hidden_dropout: 0.0
+  layer_normalization: false
+  max_seq_len_source: 60
+  rnn_config: !RNNConfig
+    cell_type: lstm
+    dropout_inputs: 0.0
+    dropout_recurrent: 0.0
+    dropout_states: 0.0
+    first_residual_layer: 2
+    forget_bias: 0.0
+    num_hidden: 512
+    num_layers: 1
+    residual: false
+  state_init: last
+config_embed_source: !EmbeddingConfig
+  dropout: 0.0
+  num_embed: 256
+  vocab_size: 24007
+config_embed_target: !EmbeddingConfig
+  dropout: 0.0
+  num_embed: 256
+  vocab_size: 29337
+config_encoder: !RecurrentEncoderConfig
+  conv_config: null
+  reverse_input: false
+  rnn_config: !RNNConfig
+    cell_type: lstm
+    dropout_inputs: 0.0
+    dropout_recurrent: 0.0
+    dropout_states: 0.0
+    first_residual_layer: 2
+    forget_bias: 0.0
+    num_hidden: 512
+    num_layers: 1
+    residual: false
+config_loss: !LossConfig
+  label_smoothing: 0.0
+  name: cross-entropy
+  normalization_type: valid
+  vocab_size: 29337
+max_seq_len_source: 60
+max_seq_len_target: 60
+vocab_source_size: 24007
+vocab_target_size: 29337
+weight_normalization: false
+weight_tying: false
+weight_tying_type: null

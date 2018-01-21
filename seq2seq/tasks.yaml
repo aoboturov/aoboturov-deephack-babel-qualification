@@ -1,0 +1,11 @@
+tasks:
+  - class: DecodeText
+    params:
+      unk_replace: True
+input_pipeline:
+  class: ParallelTextInputPipeline
+  params:
+    source_files:
+      - "/data/input.txt"
+model_dir: "/aoboturov/model"
+checkpoint_path: "/aoboturov/model/model.ckpt"

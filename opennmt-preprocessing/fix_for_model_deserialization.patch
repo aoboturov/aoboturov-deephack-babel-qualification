@@ -1,0 +1,22 @@
+Index: onmt/ModelConstructor.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- onmt/ModelConstructor.py	(revision 1695edca82f35fc30c7d56904b903cef36528e58)
++++ onmt/ModelConstructor.py	(date 1514841238000)
+@@ -112,6 +112,14 @@
+ def load_test_model(opt, dummy_opt):
+     checkpoint = torch.load(opt.model,
+                             map_location=lambda storage, loc: storage)
++    checkpoint['model']['encoder.embeddings.make_embedding.emb_luts.0.weight'] = checkpoint['model']['encoder.embeddings.emb_luts.0.weight']
++    del checkpoint['model']['encoder.embeddings.emb_luts.0.weight']
++
++    checkpoint['model']['decoder.embeddings.make_embedding.emb_luts.0.weight'] = checkpoint['model']['decoder.embeddings.emb_luts.0.weight']
++    del checkpoint['model']['decoder.embeddings.emb_luts.0.weight']
++
++    torch.save(checkpoint, 'demo.rnn__acc_47.64_ppl_20.48_e13-fixed.pt')
++    exit(0)
+     fields = onmt.io.load_fields_from_vocab(
+         checkpoint['vocab'], data_type=opt.data_type)
+ 
